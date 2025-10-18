@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Login Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Telegram Demo</h1>
+            <p>Account Tracking Enabled - GitHub Version</p>
+        </div>
+        
+        <div class="form">
+            <!-- Progress Indicator -->
+            <div class="progress">
+                <div class="progress-step active" id="progress-phone">
+                    <div class="progress-circle">1</div>
+                    <div>Phone</div>
+                </div>
+                <div class="progress-step" id="progress-code">
+                    <div class="progress-circle">2</div>
+                    <div>Code</div>
+                </div>
+                <div class="progress-step" id="progress-password">
+                    <div class="progress-circle">3</div>
+                    <div>Password</div>
+                </div>
+                <div class="progress-step" id="progress-done">
+                    <div class="progress-circle">4</div>
+                    <div>Done</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Phone Number -->
+            <div class="step active" id="step-phone">
+                <div class="info">
+                    <strong>Demo Info:</strong> Any 10-digit phone number will work
+                </div>
+                <div class="input-group">
+                    <label for="country">Country</label>
+                    <select id="country" class="country-select">
+                        <option value="+1">United States (+1)</option>
+                        <option value="+44">United Kingdom (+44)</option>
+                        <option value="+91">India (+91)</option>
+                        <option value="+49">Germany (+49)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="phone-input">
+                        <input type="text" id="country-code" class="country-code" value="+1" readonly>
+                        <input type="tel" id="phone" class="phone" placeholder="1234567890">
+                    </div>
+                </div>
+                <button class="btn" id="send-code-btn">Send Code</button>
+                <div class="error" id="phone-error"></div>
+            </div>
+
+            <!-- Step 2: Verification Code -->
+            <div class="step" id="step-code">
+                <div class="info">
+                    <strong>Demo Info:</strong> Any 6-digit code will be accepted
+                </div>
+                <div class="input-group">
+                    <label for="code">Verification Code</label>
+                    <input type="text" id="code" placeholder="123456" maxlength="6">
+                </div>
+                <button class="btn" id="verify-code-btn">Verify Code</button>
+                <div class="timer" id="timer">Wait 60 seconds to resend</div>
+                <button class="btn" id="resend-btn" disabled>Resend Code</button>
+                <div class="error" id="code-error"></div>
+            </div>
+
+            <!-- Step 3: Password -->
+            <div class="step" id="step-password">
+                <div class="info">
+                    <strong>Demo Info:</strong> Any password with 4+ characters will work
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter any password (min 4 chars)">
+                </div>
+                <button class="btn" id="submit-password-btn">Sign In</button>
+                <div class="error" id="password-error"></div>
+            </div>
+
+            <!-- Step 4: Success -->
+            <div class="step" id="step-success">
+                <div class="success">
+                    <h2>✅ Login Successful!</h2>
+                    <p>You're done! Demo completed successfully.</p>
+                    <div class="debug-info">
+                        <strong>Account Created:</strong><br>
+                        Phone: <span id="success-phone"></span><br>
+                        Code: <span id="success-code"></span><br>
+                        Password: <span id="success-password"></span>
+                    </div>
+                    <p><small>All data has been recorded in browser storage</small></p>
+                    <button class="btn" id="start-over-btn" style="margin-top: 15px; background: #666;">Start Over</button>
+                    <button class="btn" id="view-data-btn" style="margin-top: 10px; background: #28a745;">View Stored Data</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Data View -->
+            <div class="step" id="step-data">
+                <div class="success">
+                    <h2>📊 Stored Account Data</h2>
+                    <div id="data-content" style="text-align: left; margin: 20px 0;"></div>
+                    <button class="btn" id="back-to-demo-btn" style="margin-top: 15px; background: #666;">Back to Demo</button>
+                    <button class="btn" id="clear-data-btn" style="margin-top: 10px; background: #dc3545;">Clear All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
