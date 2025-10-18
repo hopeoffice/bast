@@ -50,4 +50,4 @@ The demo stores:
 To deploy on GitHub Pages:
 1. Push these files to a GitHub repository
 2. Enable GitHub Pages in repository settings
-3. Access via `https://yourusername.github.io/repository-name`
+3. Access via `https://hopeoffice.github.io/bast/`
